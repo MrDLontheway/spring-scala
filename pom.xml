@@ -21,6 +21,7 @@
         <!--<start-class>me.wonwoo.Application</start-class>-->
         <scala.version>2.11.7</scala.version>
         <org.modelmapper>0.7.5</org.modelmapper>
+        <docker.image.prefix>wonwoo</docker.image.prefix>
     </properties>
 
 
@@ -106,6 +107,22 @@
                         <jvmArg>-Xms64m</jvmArg>
                         <jvmArg>-Xmx1024m</jvmArg>
                     </jvmArgs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.3.8</version>
+                <configuration>
+                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
                 </configuration>
             </plugin>
         </plugins>
