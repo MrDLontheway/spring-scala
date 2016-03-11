@@ -38,8 +38,8 @@ class PostTest {
 
   @Before
   def before = {
-    objectMapper = new ObjectMapper()
-    mockMvc = MockMvcBuilders.webAppContextSetup(wac).build()
+    objectMapper = new ObjectMapper
+    mockMvc = MockMvcBuilders.webAppContextSetup(wac).build
   }
 
   @Test
@@ -52,7 +52,7 @@ class PostTest {
 
   @Test
   def createPostTest: Unit = {
-    val createPost = new Post()
+    val createPost = new Post
     createPost.setTitle("create post1")
     createPost.setContent("spring boot scala create post test")
     mockMvc.perform(post("/post").contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(createPost)))
@@ -65,7 +65,7 @@ class PostTest {
 
   @Test
   def updatePostTest: Unit = {
-    val updatePost = new Post()
+    val updatePost = new Post
     updatePost.setTitle("good scala")
     updatePost.setContent("good spring and scala")
     mockMvc.perform(patch("/post/2").contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(updatePost)))
@@ -82,7 +82,7 @@ class PostTest {
 
   @Test
   def postBadRequestExceptionTest : Unit = {
-    val createPost = new Post()
+    val createPost = new Post
     createPost.setContent("post bad request test")
     mockMvc.perform(post("/post").contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(createPost)))
       .andDo(print())

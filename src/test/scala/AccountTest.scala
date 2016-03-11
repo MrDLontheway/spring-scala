@@ -36,8 +36,8 @@ class AccountTest {
 
   @Before
   def before = {
-    objectMapper = new ObjectMapper()
-    mockMvc = MockMvcBuilders.webAppContextSetup(wac).build()
+    objectMapper = new ObjectMapper
+    mockMvc = MockMvcBuilders.webAppContextSetup(wac).build
   }
 
   @Test
@@ -53,7 +53,7 @@ class AccountTest {
 
   @Test
   def creatTest: Unit = {
-    val account = new Account()
+    val account = new Account
     account.setName("create")
     account.setPassword("create123")
 
@@ -66,7 +66,7 @@ class AccountTest {
 
   @Test
   def updateTest: Unit = {
-    val account = new Account()
+    val account = new Account
     account.setName("wonwoo1")
     mockMvc.perform(patch("/account/1")
       .contentType(MediaType.APPLICATION_JSON)
@@ -89,7 +89,7 @@ class AccountTest {
 
   @Test
   def accountBadRequestExceptionTest: Unit = {
-    val account = new Account()
+    val account = new Account
     account.setName("wl")
     mockMvc.perform(post("/account").contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(account)))
       .andDo(print())
