@@ -23,7 +23,7 @@ class AccountService @Autowired()(accountRepository: AccountRepository) {
 
   def update(id: Long, account: Account) = {
     val oldAccount = this.account(id)
-    account.id = oldAccount.id
+    account.setId(oldAccount.getId)
     if (!Option(account.getName).exists(_.nonEmpty))
       account.setName(oldAccount.getName)
     if (!Option(account.getPassword).exists(_.nonEmpty))
