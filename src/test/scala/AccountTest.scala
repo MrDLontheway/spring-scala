@@ -67,14 +67,14 @@ class AccountTest {
   @Test
   def updateTest: Unit = {
     val account = new Account
-    account.setName("wonwoo1")
-    mockMvc.perform(patch("/account/1")
+    account.setName("test1")
+    mockMvc.perform(patch("/account/3")
       .contentType(MediaType.APPLICATION_JSON)
       .content(objectMapper.writeValueAsString(account)))
       .andDo(print())
       .andExpect(status.isOk)
-      .andExpect(jsonPath("$.name", is("wonwoo1")))
-      .andExpect(jsonPath("$.password", is("pw123000")))
+      .andExpect(jsonPath("$.name", is("test1")))
+      .andExpect(jsonPath("$.password", is("Pjgn1i93")))
   }
 
   @Test
