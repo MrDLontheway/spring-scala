@@ -1,5 +1,7 @@
 # spring-boot-scala
 
+[![Build Status](https://travis-ci.org/wonwoo/spring-boot-scala.svg?branch=master)](https://travis-ci.org/wonwoo/spring-boot-scala)
+
 ### spring-boot-scala rest api server
 
 
