@@ -1,6 +1,7 @@
 # spring-boot-scala
 
 [![Build Status](https://travis-ci.org/wonwoo/spring-boot-scala.svg?branch=master)](https://travis-ci.org/wonwoo/spring-boot-scala)
+[![Build Status](https://semaphoreci.com/api/v1/wonwoo/spring-boot-scala-2/branches/master/badge.svg)](https://semaphoreci.com/wonwoo/spring-boot-scala-2)
 
 ### spring-boot-scala rest api server
 
