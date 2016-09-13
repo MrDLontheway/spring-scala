@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/wonwoo/spring-boot-scala.svg?branch=master)](https://travis-ci.org/wonwoo/spring-boot-scala)
 [![Build Status](https://semaphoreci.com/api/v1/wonwoo/spring-boot-scala-2/branches/master/badge.svg)](https://semaphoreci.com/wonwoo/spring-boot-scala-2)
+[![](https://badge.imagelayers.io/wonwoo/spring-boot-scala:latest.svg)](https://imagelayers.io/?images=wonwoo/spring-boot-scala:latest 'Get your own badge on imagelayers.io')
+
 
 ### spring-boot-scala rest api server
 
@@ -40,6 +42,5 @@ curl -X PATCH -H "Content-Type: application/json" -d '{"title":"scala","content"
 curl -X DELETE http://localhost:8080/post/3
 curl http://localhost:8080/posts
 ```
-
 
 
