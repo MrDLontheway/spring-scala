@@ -4,8 +4,7 @@
 [![Build Status](https://semaphoreci.com/api/v1/wonwoo/spring-boot-scala-2/branches/master/badge.svg)](https://semaphoreci.com/wonwoo/spring-boot-scala-2)
 [![](https://badge.imagelayers.io/wonwoo/spring-boot-scala:latest.svg)](https://imagelayers.io/?images=wonwoo/spring-boot-scala:latest 'Get your own badge on imagelayers.io')
 
-[![](https://codeship.com/projects/5c742ef0-c469-0134-937e-621863df2064/status?branch=master)](https://codeship.com/projects/5c742ef0-c469-0134-937e-621863df2064/status?branch=master')
-
+[ ![Codeship Status for wonwoo/spring-boot-scala](https://app.codeship.com/projects/5c742ef0-c469-0134-937e-621863df2064/status?branch=master)](https://app.codeship.com/projects/197927)
 
 
 
