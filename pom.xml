@@ -19,9 +19,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <!--<start-class>me.wonwoo.Application</start-class>-->
-        <scala.version>2.11.7</scala.version>
+        <scala.version>2.11.8</scala.version>
+        <scala.binary.version>2.11</scala.binary.version>
         <org.modelmapper>0.7.5</org.modelmapper>
-        <docker.image.prefix>wonwoo</docker.image.prefix>
+        <docker.image.prefix>spring-scala</docker.image.prefix>
     </properties>
 
 
@@ -64,12 +65,15 @@
         </dependency>
     </dependencies>
 
+
     <build>
+        <sourceDirectory>src/main/scala</sourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
@@ -104,6 +108,7 @@
                     </jvmArgs>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
@@ -120,6 +125,68 @@
                     </resources>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--<plugin>-->
+                <!--<groupId>net.alchim31.maven</groupId>-->
+                <!--<artifactId>scala-maven-plugin</artifactId>-->
+                <!--&lt;!&ndash; The scala-maven-plugin is used for compiling/testing/running/documenting scala code in maven &ndash;&gt;-->
+                <!--<version>3.2.2</version>-->
+                <!--<configuration>-->
+                    <!--<scalaVersion>${scala.version}</scalaVersion>-->
+                    <!--<scalaCompatVersion>${scala.binary.version}</scalaCompatVersion>-->
+                    <!--<recompileMode>incremental</recompileMode>-->
+                    <!--<useZincServer>false</useZincServer>-->
+                    <!--<args>-->
+                        <!--<arg>-unchecked</arg>-->
+                        <!--<arg>-deprecation</arg>-->
+                        <!--<arg>-feature</arg>-->
+                    <!--</args>-->
+                    <!--<jvmArgs>-->
+                        <!--&lt;!&ndash;<jvmArg>-Xss2m</jvmArg>&ndash;&gt;-->
+                        <!--<jvmArg>-Xms512M</jvmArg>-->
+                        <!--<jvmArg>-Xmx2048M</jvmArg>-->
+                        <!--<jvmArg>-XX:MaxPermSize=2048M</jvmArg>-->
+                        <!--<jvmArg>-XX:+CMSClassUnloadingEnabled</jvmArg>-->
+                    <!--</jvmArgs>-->
+                    <!--<javacArgs>-->
+                        <!--<javacArg>-source</javacArg>-->
+                        <!--<javacArg>${java.version}</javacArg>-->
+                        <!--<javacArg>-target</javacArg>-->
+                        <!--<javacArg>${java.version}</javacArg>-->
+                        <!--<javacArg>-Xlint:all,-serial,-path</javacArg>-->
+                    <!--</javacArgs>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>scala-compile-first</id>-->
+                        <!--<phase>process-resources</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>add-source</goal>-->
+                            <!--<goal>compile</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                    <!--<execution>-->
+                        <!--<id>scala-test-compile</id>-->
+                        <!--<phase>process-test-resources</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>testCompile</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 </project>
