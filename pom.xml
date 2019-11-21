@@ -6,7 +6,7 @@
 
     <groupId>me.wonwoo</groupId>
     <artifactId>spring-boot-scala</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <parent>
@@ -23,6 +23,8 @@
         <scala.binary.version>2.11</scala.binary.version>
         <org.modelmapper>0.7.5</org.modelmapper>
         <docker.image.prefix>spring-scala</docker.image.prefix>
+        <docker.registry>registry.cn-shanghai.aliyuncs.com/scistor/spring-scala</docker.registry>
+        <push.image>true</push.image>
     </properties>
 
 
@@ -63,8 +65,39 @@
             <artifactId>scala-compiler</artifactId>
             <version>${scala.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>19.0</version>
+        </dependency>
     </dependencies>
 
+
+    <distributionManagement>
+        <repository>
+            <!--这里的id需要和settings.xml中的server的id一致-->
+            <id>nexus-scistor</id>
+            <name>Nexus release Repository</name>
+            <!--releases仓库-->
+            <url>http://192.168.31.193:8088/repository/nexus-scistor/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-scistor</id>
+            <name>Nexus Snapshot</name>
+            <url>http://192.168.31.193:8088/repository/nexus-scistor/</url>
+        </snapshotRepository>
+        <site>
+            <id>nexus-scistor</id>
+            <name>Nexus Sites</name>
+            <url>http://192.168.31.193:8088/repository/nexus-scistor/</url>
+        </site>
+        <!--<repository>-->
+        <!--<id>dist-nexus</id>-->
+        <!--<url>${release.url}</url>-->
+        <!--</repository>-->
+
+    </distributionManagement>
 
     <build>
         <sourceDirectory>src/main/scala</sourceDirectory>
@@ -116,6 +149,9 @@
                 <configuration>
                     <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
+
+                    <serverId>docker-registry</serverId>
+                    <registryUrl>${docker.registry}</registryUrl>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
