@@ -19,7 +19,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <!--<start-class>me.wonwoo.Application</start-class>-->
-        <scala.version>2.11.8</scala.version>
+        <scala.version>2.13.1</scala.version>
         <scala.binary.version>2.11</scala.binary.version>
         <org.modelmapper>0.7.5</org.modelmapper>
         <docker.image.prefix>spring-scala</docker.image.prefix>
